@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record</title>
+    <style>
+        input{
+            margin: 20px;
+
+        }
+        body{
+            text-align: center;
+            align-items: center;
+        }
+        form{
+            background: #0f6e8b;
+            text-align: center;
+            width: fit-content;
+            border-radius: 2%;
+        }
+    </style>
+</head>
+<body>
+    <form action="http://localhost/studentRecord.php" method="GET">
+        <label>Name : </label>
+        <input type="text" name="name" placeholder="Enter Your Name" required><br>
+        <label>USN : </label>
+        <input type="text" name="usn" id="usn" placeholder="Enter Your USN" required><br>
+        <label>CGPA : </label>
+        <input type="number" name="cgpa" id="cgpa" min="0" max="10" step="0.1" required><br>
+        <button type="submit">SUBMIT</button>
+    </form>
+</body>
+</html>

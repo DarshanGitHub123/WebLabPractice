@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="C:\Users\darsh\Desktop\XML practice\students.xsd">
+	<student usn="1RV23CS001">
+		<firstName>Darshan</firstName>
+		<homeAddress>
+			<locality>Jayanagar</locality>
+			<city>Bangalore</city>
+			<pin>560041</pin>
+			<country>India</country>
+		</homeAddress>
+		<phoneNumber>9876543210</phoneNumber>
+		<courseEnrolled>
+			<course>
+				<title>Data Structures</title>
+				<code>CS201</code>
+				<marksScored>85</marksScored>
+				<passed>true</passed>
+			</course>
+			<course>
+				<title>DBMS</title>
+				<code>CS301</code>
+				<marksScored>90</marksScored>
+				<passed>true</passed>
+			</course>
+		</courseEnrolled>
+	</student>
+</students>

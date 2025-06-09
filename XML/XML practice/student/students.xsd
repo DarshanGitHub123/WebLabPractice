@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Custom types for restrictions -->
+  <xsd:simpleType name="firstNameType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="phoneNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="10"/>
+      <xsd:pattern value="\d{10}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="marksType">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <!-- Main structure -->
+  <xsd:element name="students">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="student" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="firstName" type="firstNameType"/>
+              <xsd:element name="homeAddress">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="locality" type="xsd:string"/>
+                    <xsd:element name="city" type="xsd:string"/>
+                    <xsd:element name="pin" type="xsd:string"/>
+                    <xsd:element name="country" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="phoneNumber" type="phoneNumberType"/>
+              <xsd:element name="courseEnrolled">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="course" maxOccurs="3">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="title" type="xsd:string"/>
+                          <xsd:element name="code" type="xsd:string"/>
+                          <xsd:element name="marksScored" type="marksType"/>
+                          <xsd:element name="passed" type="xsd:boolean"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="usn" type="xsd:string" use="required"/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>

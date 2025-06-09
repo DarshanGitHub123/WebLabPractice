@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Tools</title>
+    <style>
+        .header{
+            background: #ccc;
+            text-align: center;
+            padding:15px ;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav a{
+            text-decoration: none;
+            padding: 14px 16px;
+            color: white;
+        }
+        .nav a:hover{
+            background: white;
+            color: black;
+        }
+        .nav{
+            display: flex;
+            background:#000;
+        }
+        .container{
+            display: flex;
+        }
+        .column{
+            width: 33.33%;
+            height: 100px;
+            margin: 10px;
+        }
+        .column h3{
+            align-items: center;
+        }
+        .column::after{
+            content: "";
+        }
+        .footer{
+            text-align: center;
+            background: #000;
+            color: white;
+            padding:15px ;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>CMS Tools</h1>
+    </div>
+    <div class="nav">
+        <a href="#">WordPress</a>
+        <a href="#">Joomla</a>
+        <a href="#">XAMPP</a>
+    </div>
+    <div class="container">
+        <div class="column">
+            <h3>WordPress</h3>
+            <p>The best and the fastest way to develop website.</p>
+        </div>
+        <div class="column">
+            <h3>Joomla</h3>
+            <p>The best software for web developers.</p>
+        </div>
+        <div class="column">
+            <h3>XAMPP</h3>
+            <p>The should must for the local server host.</p>
+        </div>
+    </div>
+    <div class="footer">Created by - Darshan</div>
+</body>
+</html>

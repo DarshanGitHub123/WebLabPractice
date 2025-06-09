@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<car_catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="cars.xsd">
+
+    <car>
+        <make>Chevrolet</make>
+        <model>Impala</model>
+        <year>1997</year>
+        <color>Light Blue</color>
+        <engine>
+            <number_of_cylinders>8</number_of_cylinders>
+            <fuel_system>multi-port fuel injected</fuel_system>
+        </engine>
+        <number_of_doors>4</number_of_doors>
+        <transmission_type>4 speed automatic</transmission_type>
+        <accessories radio="yes" air_conditioning="yes" power_windows="yes"
+                     power_steering="yes" power_breaks="yes"/>
+    </car>
+
+    <car>
+        <make>Toyota</make>
+        <model>Camry</model>
+        <year>1985</year>
+        <color>Blue</color>
+        <engine>
+            <number_of_cylinders>8</number_of_cylinders>
+            <fuel_system>multi-port fuel injected</fuel_system>
+        </engine>
+        <number_of_doors>4</number_of_doors>
+        <transmission_type>4 speed automatic</transmission_type>
+        <accessories radio="yes" air_conditioning="yes" power_windows="yes"
+                     power_steering="yes" power_breaks="yes"/>
+    </car>
+
+</car_catalog>
+

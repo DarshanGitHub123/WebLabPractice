@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>place wish list</title>
+</head>
+<body>
+    <button id="addBtn" onclick="addFuction()">Add Place To List</button>
+    <input type="text" id="inputtxt" required><br>
+    <h2>Must Visit Places</h2>
+    <ul id="visitList">
+        <!-- <li>Dharwad</li> -->
+    </ul>
+    <script>
+        function addFuction(){
+            var ipTxt=document.getElementById("inputtxt").value;
+            var unorderList=document.getElementById("visitList");
+
+            if(ipTxt==""){
+                alert("Fields cann't be empty!");
+                return;
+            }
+            const pTxt=document.createTextNode(ipTxt);
+            var newEle=document.createElement("li");
+            newEle.appendChild(pTxt);
+            unorderList.appendChild(newEle);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!ELEMENT car_catalog (car+)>
+<!ELEMENT car (make, model, year, color, engine, number_of_doors, transmission_type, accessories)>
+<!ELEMENT make (#PCDATA)>
+<!ELEMENT model (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT color (#PCDATA)>
+<!ELEMENT engine (number_of_cylinders, fuel_system)>
+<!ELEMENT number_of_cylinders (#PCDATA)>
+<!ELEMENT fuel_system (#PCDATA)>
+<!ELEMENT number_of_doors (#PCDATA)>
+<!ELEMENT transmission_type (#PCDATA)>
+<!ELEMENT accessories EMPTY>
+<!ATTLIST accessories
+    radio CDATA #REQUIRED
+    air_conditioning CDATA #REQUIRED
+    power_windows CDATA #REQUIRED
+    power_steering CDATA #REQUIRED
+    power_breaks CDATA #REQUIRED>
+
+<!ENTITY c "Chevrolet">
+<!ENTITY c "Ford">
+<!ENTITY c "Dodge">
+<!ENTITY c "Honda">
+<!ENTITY c "Nissan">
+<!ENTITY c "Toyota">

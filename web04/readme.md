@@ -1,0 +1,1 @@
+store the student data to database using the PHP

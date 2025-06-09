@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Ticket Booking System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ccc;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            margin: auto;
+            width: 50%;
+        }
+
+        table {
+            border: 1px solid black; /* Corrected border */
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 2px 10px;
+            text-align: center;
+        }
+
+        button {
+            margin: 10px 10px 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Railway Ticket Booking</h2>
+    <form onsubmit="return submitForm()"> <!-- Prevent page refresh on submit -->
+        <label>Source: </label>
+        <input type="text" id="source" required> <br><br>
+        <label>Destination: </label>
+        <input type="text" id="destination" required><br><br> <!-- Corrected ID to lowercase -->
+
+        <table id="PassengerTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Berth</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Passenger rows will be added here -->
+            </tbody>
+        </table><br>
+
+        <button type="button" id="addPassenger" onclick="addPassengerRow()">Add Passenger</button><br>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

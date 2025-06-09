@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Form</title>
+<style>
+    body { font-family: Arial, sans-serif; background-color: #ccc; margin: 20px; }
+    form { max-width: 600px; margin: auto; padding: 20px; background-color: #eee; border: 1px solid #aaa; border-radius: 5px; }
+    table { width: 100%; margin-bottom: 20px; border-collapse: collapse; }
+    table, th, td { border: 1px solid #000; text-align: center; padding: 5px; }
+    label { display: block; margin-top: 10px; }
+    input[type="text"], input[type="number"], input[type="submit"], select {
+        width: 100%; padding: 5px; margin-bottom: 10px;
+    }
+    input[readonly] { background-color: #f0f0f0; }
+    .error { color: red; font-size: 14px; }
+</style>
+</head>
+
+<body>
+
+<h2>Customer Order Form</h2>
+<form id="orderForm">
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td>Ethernet Cable (2 m.)</td>
+            <td>Rs.150</td>
+            <td><input type="number" id="cableQty" min="0" value="0" onchange="calculateTotal()"></td>
+        </tr>
+        <tr>
+            <td>Router</td>
+            <td>Rs.3000</td>
+            <td><input type="number" id="routerQty" min="0" value="0" onchange="calculateTotal()"></td>
+        </tr>
+        <tr>
+            <td>Adapter</td>
+            <td>Rs.280</td>
+            <td><input type="number" id="adapterQty" min="0" value="0" onchange="calculateTotal()"></td>
+        </tr>
+    </table>
+
+    <label>Total Cost (incl. Shipping Charges):</label>
+    <input type="text" id="totalCost" readonly>
+
+    <label>Payment Mode:</label>
+    <input type="radio" name="payment" value="Debit/Credit Cards" required> Debit/Credit Cards<br>
+    <input type="radio" name="payment" value="UPI" required> UPI (PhonePe/GooglePay/BHIM)<br>
+    <input type="radio" name="payment" value="Net Banking" required> Net Banking<br>
+    <input type="radio" name="payment" value="Cash on Delivery" required> Cash on Delivery<br>
+    <div id="paymentError" class="error"></div>
+
+    <h3>Shipping Address</h3>
+    <label>Customer Full Name:</label>
+    <input type="text" id="shippingName" required>
+    <label>Locality:</label>
+    <input type="text" id="shippingLocality" required>
+    <label>City:</label>
+    <input type="text" id="shippingCity" required>
+    <label>State:</label>
+    <select id="shippingState" required>
+        <option value="">-- Select your state --</option>
+        <option value="State1">State1</option>
+        <option value="State2">State2</option>
+        <option value="State3">State3</option>
+    </select>
+    <label>PIN:</label>
+    <input type="text" id="shippingPin" maxlength="6" pattern="\d{6}" placeholder="6-digit-PIN" required>
+
+    <h3>Billing Address</h3>
+    <label><input type="checkbox" id="sameAddress" onclick="copyAddress()"> Same as shipping address</label>
+    <label>Customer Full Name:</label>
+    <input type="text" id="billingName" required>
+    <label>Locality:</label>
+    <input type="text" id="billingLocality" required>
+    <label>City:</label>
+    <input type="text" id="billingCity" required>
+    <label>State:</label>
+    <select id="billingState" required>
+        <option value="">-- Select your state --</option>
+        <option value="State1">State1</option>
+        <option value="State2">State2</option>
+        <option value="State3">State3</option>
+    </select>
+    <label>PIN:</label>
+    <input type="text" id="billingPin" maxlength="6" pattern="\d{6}" placeholder="6-digit-PIN" required>
+
+    <input type="submit" value="Submit Order">
+    <input type="reset" value="Clear Order Form">
+</form>
+
+<script>
+    function calculateTotal() {
+        const cablePrice = 150, routerPrice = 3000, adapterPrice = 280;
+        const cableQty = parseInt(document.getElementById("cableQty").value) || 0;
+        const routerQty = parseInt(document.getElementById("routerQty").value) || 0;
+        const adapterQty = parseInt(document.getElementById("adapterQty").value) || 0;
+
+        const orderAmount = (cablePrice * cableQty) + (routerPrice * routerQty) + (adapterPrice * adapterQty);
+        let totalCost = orderAmount;
+
+        if (orderAmount > 0 && orderAmount < 1000) {
+            totalCost += orderAmount * 0.10;  // 10% shipping charge
+        }
+
+        document.getElementById("totalCost").value = totalCost.toFixed(2);
+    }
+
+    function copyAddress() {
+        if (document.getElementById("sameAddress").checked) {
+            document.getElementById("billingName").value = document.getElementById("shippingName").value;
+            document.getElementById("billingLocality").value = document.getElementById("shippingLocality").value;
+            document.getElementById("billingCity").value = document.getElementById("shippingCity").value;
+            document.getElementById("billingState").value = document.getElementById("shippingState").value;
+            document.getElementById("billingPin").value = document.getElementById("shippingPin").value;
+        } else {
+            document.getElementById("billingName").value = "";
+            document.getElementById("billingLocality").value = "";
+            document.getElementById("billingCity").value = "";
+            document.getElementById("billingState").value = "";
+            document.getElementById("billingPin").value = "";
+        }
+    }
+
+    document.getElementById("orderForm").addEventListener("submit", function(event) {
+        if (!document.getElementById("totalCost").value) {
+            alert("Please calculate the total cost before submitting.");
+            event.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>
