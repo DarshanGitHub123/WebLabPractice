@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE carCatalog SYSTEM "car_catalog.dtd">
+<carCatalog>
+    <car id="C001">
+        <make>Toyota</make>
+        <model>Camry</model>
+        <year>2022</year>
+        <price>30000</price>
+        <fuelType>Petrol</fuelType>
+    </car>
+
+    <car id="C002">
+        <make>Hyundai</make>
+        <model>Creta</model>
+        <year>2023</year>
+        <price>25000</price>
+        <fuelType>Diesel</fuelType>
+    </car>
+
+    <car id="C003">
+        <make>Tesla</make>
+        <model>Model 3</model>
+        <year>2023</year>
+        <price>40000</price>
+        <fuelType>Electric</fuelType>
+    </car>
+</carCatalog>

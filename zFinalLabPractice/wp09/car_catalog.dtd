@@ -1,0 +1,10 @@
+<!ELEMENT carCatalog (car+)>
+
+<!ELEMENT car (make, model, year, price, fuelType)>
+<!ATTLIST car id ID #REQUIRED>
+
+<!ELEMENT make (#PCDATA)>
+<!ELEMENT model (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT fuelType (#PCDATA)>
