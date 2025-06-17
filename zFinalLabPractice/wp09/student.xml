@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="C:\Users\darsh\Desktop\VI SEM\WT LAB\LABCODE\zFinalLabPractice\wp09\student.xsd">
+    <student usn="1MS22CS001">
+        <firstname>Rahul</firstname>
+        <homeaddress>
+            <locality>Rajajinagar</locality>
+            <city>Bangalore</city>
+            <pin>560010</pin>
+            <country>India</country>
+        </homeaddress>
+        <phonenumber>9876543210</phonenumber>
+        <courses>
+            <course>
+                <title>Data Structures</title>
+                <code>CS201</code>
+                <marksScored>85</marksScored>
+                <passed>true</passed>
+            </course>
+            <course>
+                <title>Operating Systems</title>
+                <code>CS203</code>
+                <marksScored>76</marksScored>
+                <passed>true</passed>
+            </course>
+            <course>
+                <title>Database Systems</title>
+                <code>CS205</code>
+                <marksScored>90</marksScored>
+                <passed>true</passed>
+            </course>
+        </courses>
+    </student>
+
+    <student usn="1MS22CS002">
+        <firstname>Anjali</firstname>
+        <homeaddress>
+            <locality>MG Road</locality>
+            <city>Mysore</city>
+            <pin>570001</pin>
+            <country>India</country>
+        </homeaddress>
+        <phonenumber>9123456789</phonenumber>
+        <courses>
+            <course>
+                <title>Computer Networks</title>
+                <code>CS209</code>
+                <marksScored>82</marksScored>
+                <passed>true</passed>
+            </course>
+			<course>
+                <title>Computer Networks</title>
+                <code>CS209</code>
+                <marksScored>82</marksScored>
+                <passed>true</passed>
+            </course>
+			
+			
+			<course>
+                <title>Computer Networks</title>
+                <code>CS209</code>
+                <marksScored>82</marksScored>
+                <passed>true</passed>
+            </course>
+			
+        </courses>
+		
+    </student>
+</students>

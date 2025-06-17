@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="students">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="student" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="firstname" type="xs:string"/>
+              
+              <xs:element name="homeaddress">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="locality" type="xs:string"/>
+                    <xs:element name="city" type="xs:string"/>
+                    <xs:element name="pin" type="xs:string"/>
+                    <xs:element name="country" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              
+              <xs:element name="phonenumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="\d{10}"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              
+              <xs:element name="courses">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="course" maxOccurs="3" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="title" type="xs:string"/>
+                          <xs:element name="code" type="xs:string"/>
+                          <xs:element name="marksScored">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:integer">
+                                <xs:minInclusive value="0"/>
+                                <xs:maxInclusive value="100"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="passed" type="xs:boolean"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+            </xs:sequence>
+            <xs:attribute name="usn" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
