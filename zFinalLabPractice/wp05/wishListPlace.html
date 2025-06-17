@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlaceWishList</title>
+</head>
+<body>
+
+    <button type="button" onclick="addWishList()">add place to wish list</button>
+    <input type="text" id="inputText">
+    <h3>must visit places</h3>
+    <ul id="unorderList">
+        <!-- added place come here -->
+    </ul>
+</body>
+<script>
+    function addWishList(){
+        const ipText=document.getElementById("inputText").value;
+
+
+        if(ipText==""){
+            alert("field not be empty");
+            return;
+        }
+        const unorderList=document.getElementById("unorderList");
+        const Text=document.createTextNode(ipText);
+        const newEle=document.createElement("li");
+        newEle.appendChild(Text);
+        unorderList.appendChild(newEle);
+    }
+</script>
+</html>

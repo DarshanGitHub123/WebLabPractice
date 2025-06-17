@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Railways</title>
+</head>
+<body>
+    <form id="ticketForm">
+        <label>Source : </label>
+        <input type="text" id="source" required><br>
+        <label>Destination : </label>
+        <input type="text" id="destination" required><br>
+
+        <h3>passanger details</h3>
+        <table id="passangerTable">
+            <thead>
+                <th>Name</th>                
+                <th>Age</th>                
+                <th>Berth</th>                
+                <th>Action</th>                
+            </thead>
+            <tbody>
+                <!-- added rows comes here -->
+                 
+            </tbody>
+        </table>
+        <button type="button" id="addPassanger" onclick="addPassangerRow()">ADD PASSANGERS</button><br>
+        <button type="submit" onclick="submitForm()">SUBMIT</button>
+        <button type="clear">CLEAR</button>
+    </form>
+    <script>
+        let passangerCnt=0;
+        function addPassangerRow(){
+            if(passangerCnt>7){
+                alert("Only 7 passangers per ticket allowed!!!!!");
+                return;
+            }
+            const row=document.createElement("tr");
+            row.innerHTML=`
+                <td><input type="text"></td>
+                 <td><input type="number"></td>
+                 <td>
+                    <select>
+                        <option value="Lower">Lower</option>
+                        <option value="Middle">Middle</option>
+                        <option value="Upper">Upper</option>
+                    </select>
+                 </td>
+                 <td><button onclick="removePassanger(this)">Remove</button></td>
+            `;
+
+            tBody=document.querySelector("#passangerTable tbody");
+            tBody.appendChild(row);
+            passangerCnt++;
+        }
+        function removePassanger(button){
+            const target=button.parentNode.parentNode;
+            target.remove();
+            passangerCnt--;
+        }
+        function submitForm(){
+            if(passangerCnt<3){
+                alert("minimum 3 passangers per ticket!!!!!");
+                return false;
+            }
+            const source=document.getElementById("source").value;
+            const destination=document.getElementById("destination").value;
+            alert(`ticket booking successful from ${source} to ${destination}.Thank you!!!!!`);
+        }
+    </script>
+</body>
+</html>

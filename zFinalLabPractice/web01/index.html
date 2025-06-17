@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+</head>
+<body>
+    <h1>ORDER FORM</h1>
+    <form id="orderForm">
+        <h2>Items Menu</h2>
+        <table id="itemsTable">
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            <tr>
+                <td>Cable</td>
+                <td>300</td>
+                <td><input type="text" id="cableQty" name="cableQty" onchange="calculateTotal()"></td>
+            </tr>
+            <tr>
+                <td>Charger</td>
+                <td>600</td>
+                <td><input type="text" id="chargerQty" name="chargerQty" onchange="calculateTotal()"></td>
+            </tr>
+            <tr>
+                <td>Switch</td>
+                <td>900</td>
+                <td><input type="text" id="switchQty" name="swichQty" onchange="calculateTotal()"></td>
+            </tr>
+        </table>
+        <label>Total Amount : </label>
+        <input type="text" id="totalAmount" readonly>
+
+        
+        <h2>Payment method</h2>
+        <input type="radio" name="payment" value="Cards">Cards<br>
+        <input type="radio" name="payment" value="Netbanking">Netbanking<br>
+        <input type="radio" name="payment" value="Cash">Cash<br>
+
+        <h2>Billing Address</h2>
+        <label>Name : </label>
+        <input type="text" id="billingName" name="billingName" required><br>
+        <label>City : </label>
+        <input type="text" id="billingCity" name="billingCity" required><br>
+        <label>State : </label>
+        <select name="billingState" id="billingState">
+            <option value="state1">state1</option>
+            <option value="state2">state2</option>
+            <option value="state3">state3</option>
+        </select>
+        <label>PIN : </label>
+        <input type="text" id="billingPIN" name="billingPIN" required>
+       
+       
+        <h2>Shipping Address</h2>
+        <label>Same as Billing address : </label>
+        <input type="checkbox" name="sameAddress" id="sameAddress" onclick="copyAddress()">
+        <label>Name : </label>
+        <input type="text" id="shippingName" name="shippingName" required><br>
+        <label>City : </label>
+        <input type="text" id="shippingCity" name="shippingCity" required><br>
+        <label>State : </label>
+        <select name="shippingState" id="shippingState">
+            <option value="state1">state1</option>
+            <option value="state2">state2</option>
+            <option value="state3">state3</option>
+        </select>
+        <label>PIN : </label>
+        <input type="text" id="shippingPIN" name="shippingPIN" required>
+
+
+        <button type="submit">SUBMIT</button>
+        <button type="reset">RESET</button>
+    </form>
+
+    <script>
+        const cablePrice=300,chargerPrice=600,switchPrce=900;
+        function calculateTotal(){
+            const cableQty=document.getElementById("cableQty").value || 0;
+            const chargerQty=document.getElementById("chargerQty").value || 0;
+            const swichQty=document.getElementById("switchQty").value || 0;
+
+            let total=(cablePrice*cableQty)+(chargerPrice*chargerQty)+(switchPrce*swichQty);
+
+            document.getElementById("totalAmount").value=total;
+        }
+
+
+        function copyAddress(){
+
+            if(document.getElementById("sameAddress").checked){
+                document.getElementById("shippingName").value=document.getElementById("billingName").value;
+                document.getElementById("shippingCity").value=document.getElementById("billingCity").value;
+                document.getElementById("shippingState").value=document.getElementById("billingState").value;
+                document.getElementById("shippingPIN").value=document.getElementById("billingPIN").value;
+            }else{
+                document.getElementById("shippingName").value="";
+                document.getElementById("shippingCity").value="";
+                document.getElementById("shippingState").value="";
+                document.getElementById("shippingPIN").value="";
+            }
+
+            
+        }
+
+    </script>
+
+</body>
+</html>
