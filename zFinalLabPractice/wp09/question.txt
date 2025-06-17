@@ -1,0 +1,16 @@
+1.Design add xml document to store information about students in a college.
+Information about student must include first name,home address(locality,city,pin,country),phone number, course enrolled(title,code,marksScored,passed).
+
+note:
+-each student can enroll in at most 3 courses.every student will have usn as an attribute.
+-phone number must be exactly 10 digits lenth
+-marksScored shouldn't be negative and not exeeds 100
+
+2.create an xml schema for the xml document described Q1. validate the xml document against the xsd.also demonstrate the features of xsd by making temporary changes in the xml.
+
+3.create a dtd to store information on a catelog of cars.
+
+4.create an xml document with at least 2 instances of the car element described in Q3. display the raw xml document.
+
+
+//use restriction for some of the which i have noted
